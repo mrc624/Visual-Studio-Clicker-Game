@@ -66,6 +66,23 @@ namespace Clicker_Game
         private void Update_Clicks()
         {
             label1.Text = clicks.ToString();
+            Update_Click_Add();
+        }
+
+        private void Update_Click_Add()
+        {
+            CurrentClickAdd.Text = adder.ToString();
+            CostForNextClickAdd.Text = (100 * adder).ToString();
+            if ( clicks >= 100 * adder)
+            {
+                ClicksTillNextAdder.Text = "Available";
+                ClicksTillNextAdder.BackColor = Color.Green;
+            }
+            else
+            {
+                ClicksTillNextAdder.Text = ((100 * adder) - clicks).ToString();
+                ClicksTillNextAdder.BackColor = SystemColors.Window;
+            }
         }
 
         private void btnMultiplier_Click(object sender, EventArgs e)
