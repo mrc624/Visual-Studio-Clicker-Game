@@ -1,0 +1,10 @@
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\bin\Debug\Clicker Game.exe.config
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\bin\Debug\Clicker Game.exe
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\bin\Debug\Clicker Game.pdb
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker Game.csproj.AssemblyReference.cache
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker_Game.Form1.resources
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker_Game.Properties.Resources.resources
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker Game.csproj.GenerateResource.cache
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker Game.csproj.CoreCompileInputs.cache
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker Game.exe
+C:\Users\mrclo\OneDrive\Desktop\Projects\Clicker Game\Clicker Game\obj\Debug\Clicker Game.pdb
