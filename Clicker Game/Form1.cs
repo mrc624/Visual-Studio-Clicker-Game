@@ -32,6 +32,7 @@ namespace Clicker_Game
         private void Reset_Btns()
         {
             Reset_btnAdder();
+            Reset_btnMultiplier();
         }
 
         private void Run_Click ()
@@ -65,6 +66,28 @@ namespace Clicker_Game
         private void Update_Clicks()
         {
             label1.Text = clicks.ToString();
+        }
+
+        private void btnMultiplier_Click(object sender, EventArgs e)
+        {
+            if (clicks >= 1000 * multiplier)
+            {
+                clicks = clicks - (1000 * multiplier);
+                multiplier++;
+                btnMultiplier.Text = "Sufficient Amount";
+                btnMultiplier.BackColor = Color.Green;
+            }
+            else
+            {
+                btnMultiplier.Text = "Insufficient Amount";
+                btnMultiplier.BackColor = Color.Red;
+            }
+            Update_Clicks();
+        }
+        private void Reset_btnMultiplier()
+        {
+            btnMultiplier.Text = "Button Adder";
+            btnMultiplier.BackColor = SystemColors.Window;
         }
     }
 }
