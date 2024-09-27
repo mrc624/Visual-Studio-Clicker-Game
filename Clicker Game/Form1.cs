@@ -7,21 +7,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
+using System.Security;
 
 namespace Clicker_Game
 {
     public partial class Form1 : Form
     {
 
+        delegate void VoidDelegate();
+
         uint clicks = 0;
         uint net_clicks = 0;
         uint net_currency = 0;
         uint adder = 1;
         uint multiplier = 1;
+        uint Seconds = 0;
+
+        private System.Timers.Timer Timer;
+
+        private void SetTimer()
+        {
+            Timer = new System.Timers.Timer(1000);
+            Timer.Elapsed += OnTimedEvent;
+            Timer.AutoReset = true;
+            Timer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+           Seconds++;
+           Invoke (new VoidDelegate (Second_Trigger));
+        }
 
         public Form1()
         {
             InitializeComponent();
+            SetTimer();
+        }
+
+        private void Second_Trigger()
+        {
+            SecondsElapsed.Text = Seconds.ToString();
         }
 
         private void click_Click(object sender, EventArgs e)

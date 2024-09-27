@@ -54,6 +54,7 @@
             this.lblOverallClicks = new System.Windows.Forms.Label();
             this.lblNetCurrency = new System.Windows.Forms.Label();
             this.lblOverallClickStats = new System.Windows.Forms.Label();
+            this.SecondsElapsed = new System.Windows.Forms.Label();
             this.ClickAddPanel.SuspendLayout();
             this.ClickMultPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             // click
             // 
-            this.click.Location = new System.Drawing.Point(250, 101);
+            this.click.Location = new System.Drawing.Point(249, 122);
             this.click.Name = "click";
             this.click.Size = new System.Drawing.Size(294, 173);
             this.click.TabIndex = 0;
@@ -321,11 +322,21 @@
             this.lblOverallClickStats.TabIndex = 3;
             this.lblOverallClickStats.Text = "Overall Click Stats";
             // 
+            // SecondsElapsed
+            // 
+            this.SecondsElapsed.AutoSize = true;
+            this.SecondsElapsed.Location = new System.Drawing.Point(480, 342);
+            this.SecondsElapsed.Name = "SecondsElapsed";
+            this.SecondsElapsed.Size = new System.Drawing.Size(53, 13);
+            this.SecondsElapsed.TabIndex = 9;
+            this.SecondsElapsed.Text = "Unknown";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SecondsElapsed);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ClickMultPanel);
             this.Controls.Add(this.ClickAddPanel);
@@ -372,6 +383,7 @@
         private System.Windows.Forms.Label lblOverallClicks;
         private System.Windows.Forms.Label lblNetCurrency;
         private System.Windows.Forms.Label lblOverallClickStats;
+        private System.Windows.Forms.Label SecondsElapsed;
     }
 }
 
