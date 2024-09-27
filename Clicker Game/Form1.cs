@@ -14,7 +14,7 @@ namespace Clicker_Game
 {
     public partial class Form1 : Form
     {
-
+        //Declarations
         delegate void VoidDelegate();
 
         uint clicks = 0;
@@ -25,6 +25,13 @@ namespace Clicker_Game
         uint Seconds = 0;
 
         private System.Timers.Timer Timer;
+
+        //Constructor
+        public Form1()
+        {
+            InitializeComponent();
+            SetTimer();
+        }
 
         private void SetTimer()
         {
@@ -40,35 +47,17 @@ namespace Clicker_Game
            Invoke (new VoidDelegate (Second_Trigger));
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-            SetTimer();
-        }
-
         private void Second_Trigger()
         {
             SecondsElapsed.Text = Seconds.ToString();
         }
 
+        //Event trigger
         private void click_Click(object sender, EventArgs e)
         {
             Run_Click();
             Reset_Btns();
             Update_Clicks();
-        }
-
-        private void Reset_Btns()
-        {
-            Reset_btnAdder();
-            Reset_btnMultiplier();
-        }
-
-        private void Run_Click ()
-        {
-            clicks = (adder * multiplier) + clicks;
-            net_currency = net_currency + (adder * multiplier);
-            net_clicks++;
         }
 
         private void btnAdder_Click(object sender, EventArgs e)
@@ -89,12 +78,24 @@ namespace Clicker_Game
             Update_Clicks();
         }
 
-        private void Reset_btnAdder()
+        private void btnMultiplier_Click(object sender, EventArgs e)
         {
-            btnAdder.Text = "Button Adder";
-            btnAdder.BackColor = SystemColors.Window;
+            if (clicks >= 1000 * multiplier)
+            {
+                clicks = clicks - (1000 * multiplier);
+                multiplier++;
+                btnMultiplier.Text = "Sufficient Amount";
+                btnMultiplier.BackColor = Color.Green;
+            }
+            else
+            {
+                btnMultiplier.Text = "Insufficient Amount";
+                btnMultiplier.BackColor = Color.Red;
+            }
+            Update_Clicks();
         }
 
+        //Click updater
         private void Update_Clicks()
         {
             CurrentCurrency.Text = clicks.ToString();
@@ -108,7 +109,7 @@ namespace Clicker_Game
         {
             CurrentClickAdd.Text = adder.ToString();
             CostForNextClickAdd.Text = (100 * adder).ToString();
-            if ( clicks >= 100 * adder)
+            if (clicks >= 100 * adder)
             {
                 ClicksTillNextAdder.Text = "Available";
                 ClicksTillNextAdder.BackColor = Color.Green;
@@ -136,22 +137,26 @@ namespace Clicker_Game
             }
         }
 
-        private void btnMultiplier_Click(object sender, EventArgs e)
+        //Resets
+        private void Reset_Btns()
         {
-            if (clicks >= 1000 * multiplier)
-            {
-                clicks = clicks - (1000 * multiplier);
-                multiplier++;
-                btnMultiplier.Text = "Sufficient Amount";
-                btnMultiplier.BackColor = Color.Green;
-            }
-            else
-            {
-                btnMultiplier.Text = "Insufficient Amount";
-                btnMultiplier.BackColor = Color.Red;
-            }
-            Update_Clicks();
+            Reset_btnAdder();
+            Reset_btnMultiplier();
         }
+
+        private void Run_Click ()
+        {
+            clicks = (adder * multiplier) + clicks;
+            net_currency = net_currency + (adder * multiplier);
+            net_clicks++;
+        }
+
+        private void Reset_btnAdder()
+        {
+            btnAdder.Text = "Button Adder";
+            btnAdder.BackColor = SystemColors.Window;
+        }
+
         private void Reset_btnMultiplier()
         {
             btnMultiplier.Text = "Button Adder";
