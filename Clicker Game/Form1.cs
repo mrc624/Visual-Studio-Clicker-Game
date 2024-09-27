@@ -14,6 +14,8 @@ namespace Clicker_Game
     {
 
         uint clicks = 0;
+        uint net_clicks = 0;
+        uint net_currency = 0;
         uint adder = 1;
         uint multiplier = 1;
 
@@ -38,10 +40,13 @@ namespace Clicker_Game
         private void Run_Click ()
         {
             clicks = (adder * multiplier) + clicks;
+            net_currency = net_currency + (adder * multiplier);
+            net_clicks++;
         }
 
         private void btnAdder_Click(object sender, EventArgs e)
         {
+            net_clicks++;
             if (clicks >= 100 * adder)
             {
                 clicks = clicks - (100 * adder);
@@ -65,8 +70,11 @@ namespace Clicker_Game
 
         private void Update_Clicks()
         {
-            label1.Text = clicks.ToString();
+            CurrentCurrency.Text = clicks.ToString();
+            OverallClicks.Text = net_clicks.ToString();
+            OverallCurrency.Text = net_currency.ToString();
             Update_Click_Add();
+            Update_Click_Mult();
         }
 
         private void Update_Click_Add()
@@ -81,7 +89,23 @@ namespace Clicker_Game
             else
             {
                 ClicksTillNextAdder.Text = ((100 * adder) - clicks).ToString();
-                ClicksTillNextAdder.BackColor = SystemColors.Window;
+                ClicksTillNextAdder.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void Update_Click_Mult()
+        {
+            CurrentClickMult.Text = multiplier.ToString();
+            CostForNextClickMult.Text = (1000 * multiplier).ToString();
+            if (clicks >= 1000 * multiplier)
+            {
+                ClicksTillNextMult.Text = "Available";
+                ClicksTillNextMult.BackColor = Color.Green;
+            }
+            else
+            {
+                ClicksTillNextMult.Text = ((1000 * multiplier) - clicks).ToString();
+                ClicksTillNextMult.BackColor = SystemColors.Control;
             }
         }
 
