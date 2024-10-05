@@ -55,6 +55,8 @@
             this.lblNetCurrency = new System.Windows.Forms.Label();
             this.lblOverallClickStats = new System.Windows.Forms.Label();
             this.SecondsElapsed = new System.Windows.Forms.Label();
+            this.btnAutoClickSec = new System.Windows.Forms.Button();
+            this.dev_give_1000 = new System.Windows.Forms.Button();
             this.ClickAddPanel.SuspendLayout();
             this.ClickMultPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -331,11 +333,33 @@
             this.SecondsElapsed.TabIndex = 9;
             this.SecondsElapsed.Text = "Unknown";
             // 
+            // btnAutoClickSec
+            // 
+            this.btnAutoClickSec.Location = new System.Drawing.Point(47, 313);
+            this.btnAutoClickSec.Name = "btnAutoClickSec";
+            this.btnAutoClickSec.Size = new System.Drawing.Size(271, 54);
+            this.btnAutoClickSec.TabIndex = 10;
+            this.btnAutoClickSec.Text = "INCREASE AUTO CLICK PER SECOND";
+            this.btnAutoClickSec.UseVisualStyleBackColor = true;
+            this.btnAutoClickSec.Click += new System.EventHandler(this.btnAutoClickSec_Click);
+            // 
+            // dev_give_1000
+            // 
+            this.dev_give_1000.Location = new System.Drawing.Point(596, 343);
+            this.dev_give_1000.Name = "dev_give_1000";
+            this.dev_give_1000.Size = new System.Drawing.Size(75, 23);
+            this.dev_give_1000.TabIndex = 11;
+            this.dev_give_1000.Text = "Dev Give 1000";
+            this.dev_give_1000.UseVisualStyleBackColor = true;
+            this.dev_give_1000.Click += new System.EventHandler(this.dev_give_1000_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dev_give_1000);
+            this.Controls.Add(this.btnAutoClickSec);
             this.Controls.Add(this.SecondsElapsed);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ClickMultPanel);
@@ -384,6 +408,8 @@
         private System.Windows.Forms.Label lblNetCurrency;
         private System.Windows.Forms.Label lblOverallClickStats;
         private System.Windows.Forms.Label SecondsElapsed;
+        private System.Windows.Forms.Button btnAutoClickSec;
+        private System.Windows.Forms.Button dev_give_1000;
     }
 }
 

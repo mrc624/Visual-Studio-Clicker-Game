@@ -23,6 +23,7 @@ namespace Clicker_Game
         uint adder = 1;
         uint multiplier = 1;
         uint Seconds = 0;
+        uint auto_clicks_per_sec = 0;
 
         private System.Timers.Timer Timer;
 
@@ -32,6 +33,8 @@ namespace Clicker_Game
             InitializeComponent();
             SetTimer();
         }
+
+        //Timed things
 
         private void SetTimer()
         {
@@ -50,6 +53,16 @@ namespace Clicker_Game
         private void Second_Trigger()
         {
             SecondsElapsed.Text = Seconds.ToString();
+            Run_Auto_Clicks();
+        }
+
+        //Autoclickers
+
+        private void Run_Auto_Clicks()
+        {
+            clicks = clicks + auto_clicks_per_sec;
+            net_currency += auto_clicks_per_sec;
+            Update_Clicks();
         }
 
         //Event trigger
@@ -57,6 +70,23 @@ namespace Clicker_Game
         {
             Run_Click();
             Reset_Btns();
+            Update_Clicks();
+        }
+
+        private void btnAutoClickSec_Click(object sender, EventArgs e)
+        {
+            if (clicks >= 500 * (auto_clicks_per_sec + 1))
+            {
+                clicks = clicks - 500 * (auto_clicks_per_sec + 1);
+                auto_clicks_per_sec++;
+                btnAutoClickSec.Text = "Sufficient Amount";
+                btnAutoClickSec.BackColor = Color.Green;
+            }
+            else
+            {
+                btnAutoClickSec.Text = "Insufficient Amount";
+                btnAutoClickSec.BackColor = Color.Red;
+            }
             Update_Clicks();
         }
 
@@ -142,6 +172,7 @@ namespace Clicker_Game
         {
             Reset_btnAdder();
             Reset_btnMultiplier();
+            Reset_btnAutoClickSec();
         }
 
         private void Run_Click ()
@@ -161,6 +192,30 @@ namespace Clicker_Game
         {
             btnMultiplier.Text = "Button Adder";
             btnMultiplier.BackColor = SystemColors.Window;
+        }
+
+        private void Reset_btnAutoClickSec()
+        {
+            btnAutoClickSec.Text = "Auto Click Per Second";
+            btnAutoClickSec.BackColor = SystemColors.Window;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //Dev
+        private void dev_give_1000_Click(object sender, EventArgs e)
+        {
+            clicks += 1000;
+            Update_Clicks();
         }
     }
 }
